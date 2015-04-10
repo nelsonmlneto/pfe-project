@@ -1,0 +1,160 @@
+/* line 1, ../sass/_default.scss */
+body {
+  color: #4d4d4d;
+  font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif;
+  line-height: 18px;
+}
+
+/* line 7, ../sass/_default.scss */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: inherit;
+  color: #4d4d4d;
+}
+
+/* line 2, ../sass/_topbar.scss */
+.top-bar {
+  background: #026aa7;
+}
+/* line 5, ../sass/_topbar.scss */
+.top-bar .title-area .name a {
+  font-weight: bold;
+  font-size: 15px;
+  margin-left: 30px;
+  margin-top: 4px;
+  height: 35px;
+  width: 395px;
+  line-height: 35px;
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3) 0, rgba(255, 255, 255, 0.2) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0, rgba(255, 255, 255, 0.2) 100%);
+}
+/* line 16, ../sass/_topbar.scss */
+.top-bar .title-area .name a:hover {
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.4) 0, rgba(255, 255, 255, 0.3) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0, rgba(255, 255, 255, 0.3) 100%);
+  color: #fff;
+}
+
+/* line 5, ../sass/style.scss */
+body {
+  min-height: 100%;
+  max-width: 100%;
+  min-width: 1286px;
+  background-color: #E5E5E5;
+}
+
+/* line 12, ../sass/style.scss */
+.page-wrapper {
+  height: 580px;
+  min-width: 1226px;
+  margin: 15px 30px 0px 30px;
+  position: relative;
+}
+
+/* line 19, ../sass/style.scss */
+.objetcs-section {
+  width: 265px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 25, ../sass/style.scss */
+.objetcs-section .add {
+  background-color: #d6dadc;
+  color: #4d4d4d;
+  margin-left: 25px;
+  padding: 5px 10px;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  line-height: 15px;
+}
+/* line 35, ../sass/style.scss */
+.objetcs-section .add:hover {
+  background-color: #c4c9cc;
+  color: #4d4d4d;
+}
+/* line 41, ../sass/style.scss */
+.objetcs-section .filter-form {
+  margin-top: 20px;
+}
+/* line 44, ../sass/style.scss */
+.objetcs-section .filter-form label {
+  font-size: 16px;
+}
+/* line 49, ../sass/style.scss */
+.objetcs-section .side-nav {
+  position: absolute;
+  top: 135px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+/* line 57, ../sass/style.scss */
+.objetcs-section .side-nav li a:not(.button) {
+  color: #4d4d4d;
+}
+/* line 60, ../sass/style.scss */
+.objetcs-section .side-nav li a:not(.button):hover {
+  background: #d6dadc;
+  color: #4d4d4d;
+}
+/* line 65, ../sass/style.scss */
+.objetcs-section .side-nav li a:not(.button) .state {
+  right: 15px;
+  position: absolute;
+  width: 20px;
+  height: 21px;
+}
+/* line 71, ../sass/style.scss */
+.objetcs-section .side-nav li a:not(.button) .state.on {
+  background-color: #70b500;
+}
+/* line 75, ../sass/style.scss */
+.objetcs-section .side-nav li a:not(.button) .state.off {
+  background-color: #eb5a46;
+}
+
+/* line 84, ../sass/style.scss */
+.main-section {
+  min-width: 950px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin-left: 285px;
+}
+
+/* line 95, ../sass/style.scss */
+.section {
+  height: 100%;
+  background-color: #fff;
+  border: 1px solid #d8d8d8;
+  border-bottom-width: 2px;
+  border-top-width: 0;
+  margin-bottom: 20px;
+  padding: 10px 20px 0 20px;
+}
+/* line 104, ../sass/style.scss */
+.section h3 {
+  font-size: 22px;
+}
+/* line 107, ../sass/style.scss */
+.section h3:before {
+  content: '';
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  vertical-align: -8px;
+  margin-right: 12px;
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+}
+/* line 118, ../sass/style.scss */
+.section h3.icon-plug:before {
+  background-image: url("../img/plug-gray.png");
+}
+/* line 122, ../sass/style.scss */
+.section h3.icon-battery:before {
+  background-image: url("../img/battery-gray.png");
+}

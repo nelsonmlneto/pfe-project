@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>SHEMS</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="libs/foundation-5.5.1/css/foundation.css">
+		<link rel="stylesheet" href="assets/css/style.css">
+		<script src="libs/foundation-5.5.1/js/vendor/modernizr.js"></script>
+	</head>
+
+	<body>
+		<nav class="top-bar" data-topbar role="navigation">
+			<ul class="title-area">
+				<li class="name">
+					<h1><a href="#">SHEMS - Smart Home Energy Management System</a></h1>
+				</li>
+			</ul>
+		</nav>	
+
+		<div class="page-wrapper">
+
+			<div class="objetcs-section section">
+				<h3 class="icon-plug">Objects</h3>
+				<a class="button secondary add" href="#">+</a>
+
+				<form class="filter-form">
+					<label>Choose your room:
+						<select>
+							<option value="0">All</option>
+							<option value="1">Kitchen</option>
+							<option value="2">Living Room</option>
+							<option value="3">TV Room</option>
+							<option value="4">Couple Bedroom</option>
+							<option value="5">Kids Bedroom</option>
+							<option value="5">Garagem</option>
+							<option value="5">Bathroom</option>
+						</select>
+					</label>
+				</form>
+
+				<ul class="side-nav">
+					<li><a href="#">Air Conditioners<span class="label state off"></span></a></li>
+					<li><a href="#">Clothes Iron<span class="label state off"></span></a></li>
+					<li><a href="#">Hair Straightener<span class="label state on"></span></a></li>
+					<li><a href="#">Light of Couple Bedroom<span class="label state on"></span></a></li>
+					<li><a href="#">Oven<span class="label state off"></span></a></li>
+					<li><a href="#">Light of Kitchen<span class="label state on"></span></a></li>
+					<li><a href="#">TV<span class="label state off"></span></a></li>
+					<li><a href="#">Light of Living Room<span class="label state on"></span></a></li>
+					<li><a href="#">Shaving Machine<span class="label state off"></span></a></li>
+				</ul>
+
+			</div>
+
+			<div class="main-section section">
+				<h3 class="icon-battery">General Energy Consumption</h3>
+
+				<ul id="general-charts" class="tabs" data-tab>
+					<li class="tab-title active"><a href="#panel1">Tab 1</a></li>
+					<li class="tab-title"><a href="#panel2">Tab 2</a></li>
+				</ul>
+				<div class="tabs-content">
+					<div class="content active" id="panel1">
+						<p>This is the first panel of the basic tab example. You can place all sorts of content here including a grid.</p>
+					</div>
+					<div class="content" id="panel2">
+						<p>This is the second panel of the basic tab example. This is the second panel of the basic tab example.</p>
+					</div>
+				</div>
+
+			</div>	
+		</div>
+
+		
+		<script src="libs/foundation-5.5.1/js/vendor/jquery.js"></script>
+		<script src="libs/foundation-5.5.1/js/vendor/fastclick.js"></script>
+		<script src="libs/foundation-5.5.1/js/foundation.min.js"></script>
+
+		<script>
+
+			
+			
+			$( document ).ready(function() {
+			    console.log( "ready!" );
+
+			    
+			    $(document).foundation();
+				$('#general-charts').on('toggled', function (event, tab) {
+				    console.log(tab);
+				});
+			});
+
+			
+		</script>
+
+	</body>
+</html>
