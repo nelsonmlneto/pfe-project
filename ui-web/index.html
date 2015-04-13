@@ -56,16 +56,39 @@
 			<div class="main-section section">
 				<h3 class="icon-battery">General Energy Consumption</h3>
 
-				<ul id="general-charts" class="tabs" data-tab>
-					<li class="tab-title active"><a href="#panel1">Tab 1</a></li>
-					<li class="tab-title"><a href="#panel2">Tab 2</a></li>
-				</ul>
-				<div class="tabs-content">
-					<div class="content active" id="panel1">
-						<p>This is the first panel of the basic tab example. You can place all sorts of content here including a grid.</p>
+				<div class="goal-container">
+					<span class="goal"><strong>Goal: </strong>100 kWh</span>
+					<span class="goal"><strong>Consumed: </strong>84 kWh</span>
+
+					<div class="progress round">
+						<span class="meter" style="width: 84%"></span>
 					</div>
-					<div class="content" id="panel2">
-						<p>This is the second panel of the basic tab example. This is the second panel of the basic tab example.</p>
+
+					<span class="month">Chart Month: </span>
+					<select class="month-select">
+						<option value="0">March</option>
+						<option value="1">February</option>
+						<option value="2">January</option>
+					</select>
+
+				</div>	
+
+				<div class="tab-container">
+					<ul id="general-charts" class="tabs" data-tab>
+						<li class="tab-title active"><a href="#panel-general">General Chart</a></li>
+						<li class="tab-title"><a href="#panel-objects">Objects Chart</a></li>
+					</ul>
+					<div class="tabs-content">
+						<div class="content active" id="panel-general">
+							<div class="chart-container">
+								<canvas id="general-chart" width="850" height="340"></canvas>
+							</div>
+						</div>
+						<div class="content" id="panel-objects">
+							<div class="chart-container">
+								<canvas id="objects-chart" width="350" height="350"></canvas>
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -76,23 +99,9 @@
 		<script src="libs/foundation-5.5.1/js/vendor/jquery.js"></script>
 		<script src="libs/foundation-5.5.1/js/vendor/fastclick.js"></script>
 		<script src="libs/foundation-5.5.1/js/foundation.min.js"></script>
+		<script src="libs/chart-js/Chart.js"></script>
 
-		<script>
-
-			
-			
-			$( document ).ready(function() {
-			    console.log( "ready!" );
-
-			    
-			    $(document).foundation();
-				$('#general-charts').on('toggled', function (event, tab) {
-				    console.log(tab);
-				});
-			});
-
-			
-		</script>
+		<script src="assets/js/shems.js"></script>		
 
 	</body>
 </html>

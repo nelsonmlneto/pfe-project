@@ -44,7 +44,7 @@ body {
 
 /* line 12, ../sass/style.scss */
 .page-wrapper {
-  height: 580px;
+  height: 600px;
   min-width: 1226px;
   margin: 15px 30px 0px 30px;
   position: relative;
@@ -103,19 +103,20 @@ body {
 .objetcs-section .side-nav li a:not(.button) .state {
   right: 15px;
   position: absolute;
-  width: 20px;
-  height: 21px;
+  width: 15px;
+  height: 16px;
+  margin-top: 3px;
 }
-/* line 71, ../sass/style.scss */
+/* line 72, ../sass/style.scss */
 .objetcs-section .side-nav li a:not(.button) .state.on {
   background-color: #70b500;
 }
-/* line 75, ../sass/style.scss */
+/* line 76, ../sass/style.scss */
 .objetcs-section .side-nav li a:not(.button) .state.off {
   background-color: #eb5a46;
 }
 
-/* line 84, ../sass/style.scss */
+/* line 85, ../sass/style.scss */
 .main-section {
   min-width: 950px;
   position: absolute;
@@ -124,8 +125,74 @@ body {
   left: 0;
   margin-left: 285px;
 }
+/* line 93, ../sass/style.scss */
+.main-section .goal-container {
+  margin-top: 20px;
+}
+/* line 96, ../sass/style.scss */
+.main-section .goal-container .goal {
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 22px;
+}
+/* line 101, ../sass/style.scss */
+.main-section .goal-container .goal + .goal {
+  margin-left: 50px;
+}
+/* line 107, ../sass/style.scss */
+.main-section .goal-container .progress {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 550px;
+  background-color: #d6dadc;
+  height: 15px;
+}
+/* line 114, ../sass/style.scss */
+.main-section .goal-container .progress .meter {
+  background: #026aa7;
+}
+/* line 119, ../sass/style.scss */
+.main-section .goal-container .month {
+  font-size: 16px;
+}
+/* line 123, ../sass/style.scss */
+.main-section .goal-container .month-select {
+  width: 150px;
+  margin-left: 10px;
+}
+/* line 130, ../sass/style.scss */
+.main-section .tab-container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  left: 20px;
+  top: 180px;
+}
+/* line 138, ../sass/style.scss */
+.main-section .tab-container .tabs .tab-title.active a {
+  border-bottom: 2px solid #026aa7;
+}
+/* line 141, ../sass/style.scss */
+.main-section .tab-container .tabs .tab-title.active a:hover {
+  border-bottom: 2px solid #026aa7;
+}
+/* line 146, ../sass/style.scss */
+.main-section .tab-container .tabs .tab-title > a {
+  background-color: white;
+  border-bottom: 2px solid white;
+  padding: 8px 16px;
+  margin-right: 5px;
+}
+/* line 152, ../sass/style.scss */
+.main-section .tab-container .tabs .tab-title > a:hover {
+  border-bottom: 2px solid #026aa7;
+}
+/* line 157, ../sass/style.scss */
+.main-section .tab-container .chart-container {
+  margin-left: 20px;
+}
 
-/* line 95, ../sass/style.scss */
+/* line 164, ../sass/style.scss */
 .section {
   height: 100%;
   background-color: #fff;
@@ -135,11 +202,11 @@ body {
   margin-bottom: 20px;
   padding: 10px 20px 0 20px;
 }
-/* line 104, ../sass/style.scss */
+/* line 173, ../sass/style.scss */
 .section h3 {
   font-size: 22px;
 }
-/* line 107, ../sass/style.scss */
+/* line 176, ../sass/style.scss */
 .section h3:before {
   content: '';
   display: inline-block;
@@ -150,11 +217,11 @@ body {
   background-size: 30px 30px;
   background-repeat: no-repeat;
 }
-/* line 118, ../sass/style.scss */
+/* line 187, ../sass/style.scss */
 .section h3.icon-plug:before {
   background-image: url("../img/plug-gray.png");
 }
-/* line 122, ../sass/style.scss */
+/* line 191, ../sass/style.scss */
 .section h3.icon-battery:before {
   background-image: url("../img/battery-gray.png");
 }

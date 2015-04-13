@@ -10,7 +10,7 @@ body{
 }
 
 .page-wrapper{
-	height: 580px;
+	height: 600px;
 	min-width: 1226px;
 	margin: 15px 30px 0px 30px;
 	position: relative;
@@ -65,8 +65,9 @@ body{
 			.state{
 				right: 15px;
 				position: absolute;
-				width: 20px;
-				height: 21px;
+				width: 15px;
+				height: 16px;
+				margin-top: 3px;
 				
 				&.on{
 					background-color: #70b500;
@@ -89,7 +90,75 @@ body{
 	left: 0;
 	margin-left: 285px;
 
-	
+	.goal-container{
+		margin-top: 20px;
+
+		.goal{
+			margin-bottom: 10px;
+			font-size: 18px;
+			line-height: 22px;
+		
+			& + .goal{
+				margin-left: 50px;
+			}
+
+		}
+
+		.progress{
+			margin-top: 10px;
+			margin-bottom: 20px;
+			width: 550px;
+			background-color: #d6dadc;
+			height: 15px;
+			
+			.meter{
+				background: #026aa7;
+			}
+		}
+
+		.month{
+			font-size: 16px;
+		}
+
+		.month-select{
+			width: 150px;
+			margin-left: 10px;
+		}
+
+	}
+
+	.tab-container{
+
+		position: absolute;
+		bottom: 20px;
+		right: 20px;
+		left: 20px;
+		top: 180px;
+
+		.tabs .tab-title.active a{
+			border-bottom: 2px solid #026aa7;
+
+			&:hover{
+				border-bottom: 2px solid #026aa7;
+			}
+		}
+
+		.tabs .tab-title > a{
+			background-color: white;
+			border-bottom: 2px solid white;
+			padding: 8px 16px;
+			margin-right: 5px;
+
+			&:hover{
+				border-bottom: 2px solid #026aa7;
+			}
+		}
+
+		.chart-container{
+			margin-left: 20px;
+		}
+
+	}
 }
 
 .section{
