@@ -1,162 +1,148 @@
 
-var ChartsHandler = {
+var ObjectsSectionHandler = {
+
+	renderRoomsSelect: function(){
+		$.getJSON( "data/rooms.json", function( data ) {
+		    var template = $('#rooms-template').html();
+			Mustache.parse(template);  
+			var html = Mustache.to_html(template, {rooms: data});
+			$('#rooms-select').html(html);
+		});
+	},
+
+	getObjectsByRoom: function(room, objects){
+		var selectedObjs = [];
+		var i = 0;
+
+		$.each(objects, function( index, value ) {
+		  	if(value.roomId == room){
+		  		selectedObjs[i] = value;
+		  		i++;
+		  	}
+		});
+
+		return selectedObjs;
+	},
+
+	renderObjectsList: function(room){
+		$.getJSON( "data/objects.json", function( data ) {
+			var objects = null;
+			if(room == 0){
+			    objects = data;
+			}else{
+				objects = ObjectsSectionHandler.getObjectsByRoom(room, data);
+			}
+
+			var template = '{{#objects}}<li><a href="#">{{title}}<span class="label state {{turned}}"></span></a></li>{{/objects}}';
+			Mustache.parse(template);  
+			var html = Mustache.to_html(template, {objects: objects});
+			$('#objects-list').html(html);
+		});
+	},
+
+	initiateObjectsSection: function(){
+		ObjectsSectionHandler.renderRoomsSelect();
+    	ObjectsSectionHandler.renderObjectsList(0);
+
+    	$('#rooms-select').on('change', function() {
+		  	ObjectsSectionHandler.renderObjectsList($(this).val()); 
+		});  	
+	}
+}
+
+var DashboardSectionHandler = {
 	
-	lineCtx: null,
+	myLineChart: null,
 
-	pieCtx : null,
+	myPieChart : null,
     
-   	objectsChartRender : function () {
-        console.log('hello');
-   
-		var data = [
-		    {
-		        value: 24,
-		        color:"#F7464A",
-		        highlight: "#FF5A5E",
-		        label: "Air Conditioners"
-		    },
-		    {
-		        value: 7,
-		        color: "#46BFBD",
-		        highlight: "#5AD3D1",
-		        label: "Clothes Iron"
-		    },
-		    {
-		        value: 7,
-		        color: "#FDB45C",
-		        highlight: "#FFC870",
-		        label: "Hair Straightener"
-		    },
-		    {
-		        value: 5,
-		        color: "#F2D600",
-		        highlight: "#FFC870",
-		        label: "Light of Couple Bedroom"
-		    },
-		    {
-		        value: 10,
-		        color: "#70B500",
-		        highlight: "#FFC870",
-		        label: "Oven"
-		    },
-		    {
-		        value: 3,
-		        color: "#FF9F1A",
-		        highlight: "#FFC870",
-		        label: "Light of Kitchen"
-		    },
-		    {
-		        value: 15,
-		        color: "#EB5A46",
-		        highlight: "#FFC870",
-		        label: "TV"
-		    },
-		    {
-		        value: 4,
-		        color: "#C377E0",
-		        highlight: "#FFC870",
-		        label: "Light of Living Room"
-		    },
-		    {
-		        value: 9,
-		        color: "#0079BF",
-		        highlight: "#FFC870",
-		        label: "Shaving Machine"
-		    }
-		]
+   	objectsChartRender : function (monthIndex) {
+   		if(DashboardSectionHandler.myPieChart != null)
+    		DashboardSectionHandler.myPieChart.destroy();
+   		
+   		$.getJSON( "data/objects.json", function( data ) {
+   			var colorPicker = ['#F7464A', '#46BFBD', '#FDB45C', '#F2D600', '#70B500', '#FF9F1A', '#EB5A46', '#C377E0', '#0079BF'];  
+   			var chartData = [];
 
-		pieCtx = $("#objects-chart").get(0).getContext("2d");
-		var myPieChart = new Chart(pieCtx).Pie(data,null);
+			$.each(data, function( index, value ) {  	
+				chartData.push({
+			        value: value.month[monthIndex].consumption,
+			        color: colorPicker[Math.floor(Math.random() * colorPicker.length)],
+			        highlight: "#d6dadc",
+			        label: value.title
+			    });
+			});
 
-		$("#objects-chart").addClass("ready");
+			var pieCtx = $("#objects-chart").get(0).getContext("2d");
+			DashboardSectionHandler.myPieChart = new Chart(pieCtx).Pie(chartData,null);
+			$("#objects-chart").addClass("ready");
+   		});	
     },
 
-    generalChartRender : function(){
-    	var generalChartData = {
-	    labels: [
-	    		"03/01", 
-    			"03/02",
-    			"03/03",
-    			"03/04",
-    			"03/05",
-    			"03/06",
-    			"03/07",
-    			"03/08",
-    			"03/09",
-    			"03/10",
-    			"03/11",
-    			"03/12",
-    			"03/13",
-    			"03/14",
-    			"03/15",
-    			"03/16",
-    			"03/17",
-    			"03/18",
-    			"03/19",
-    			"03/20",
-    			"03/21",
-    			"03/22",
-    			"03/23",
-    			"03/24", 
-				"03/25",
-				"03/26",
-    			"03/27",
-    			"03/28",
-    			"03/29",
-    			"03/30",
-    			"03/31"
-			],
-		    datasets: [
-		        {
-		            label: "My Second dataset",
-		            fillColor: "rgba(151,187,205,0.2)",
-		            strokeColor: "rgba(151,187,205,1)",
-		            pointColor: "rgba(151,187,205,1)",
-		            pointStrokeColor: "#fff",
-		            pointHighlightFill: "#fff",
-		            pointHighlightStroke: "rgba(151,187,205,1)",
-		            data: [
-		            	5, 
-		            	2, 
-		            	3, 
-		            	1, 
-		            	1,
-		            	2, 
-		            	5, 
-		            	7, 
-		            	1, 
-		            	2,
-		            	2, 
-		            	1, 
-		            	3, 
-		            	7, 
-		            	4,
-		            	1, 
-		            	2, 
-		            	2, 
-		            	1, 
-		            	1,
-		            	4, 
-		            	8, 
-		            	1, 
-		            	2, 
-		            	1,
-		            	1, 
-		            	2, 
-		            	3, 
-		            	6, 
-		            	1,
-		            	2
-	            	]
-		        }
-		    ]
-		};
+    generalChartRender : function(monthIndex){
+    	if(DashboardSectionHandler.myLineChart != null)
+    		DashboardSectionHandler.myLineChart.destroy();
 
-		// Get context with jQuery - using jQuery's .get() method.
-		lineCtx = $("#general-chart").get(0).getContext("2d");
-		// This will get the first returned node in the jQuery collection.
-		var myLineChart = new Chart(lineCtx).Line(generalChartData, {
-	    	bezierCurve: false
+    	$.getJSON( "data/consumption.json", function( data ) {
+
+    		$('#goal').html(data[monthIndex].goal);
+    		$('#consumed').html(data[monthIndex].consumed);
+    		
+   			var generalChartData = {
+		    	labels: data[monthIndex].labels,
+			    datasets: [
+			        {
+			            label: "My Second dataset",
+			            fillColor: "rgba(151,187,205,0.2)",
+			            strokeColor: "rgba(151,187,205,1)",
+			            pointColor: "rgba(151,187,205,1)",
+			            pointStrokeColor: "#fff",
+			            pointHighlightFill: "#fff",
+			            pointHighlightStroke: "rgba(151,187,205,1)",
+			            data: data[monthIndex].consumption
+			        }
+			    ]
+			};
+			var lineCtx = $("#general-chart").get(0).getContext("2d");
+			DashboardSectionHandler.myLineChart = new Chart(lineCtx).Line(generalChartData, {
+			    bezierCurve: false
+			});
+			$("#general-chart").addClass("ready");
+   		});	
+    },
+
+    initiateDashboardSection : function(){
+    	
+    	DashboardSectionHandler.generalChartRender($('#month-select').val());
+
+		$('#general-charts').on('toggled', function (event, tab) {
+			
+			if($(tab).attr('id') == "panel-general" && !$("#general-chart").hasClass("ready")){
+				DashboardSectionHandler.generalChartRender($('#month-select').val());
+			}
+
+			if($(tab).attr('id') == "panel-objects" && !$("#objects-chart").hasClass("ready")){
+				DashboardSectionHandler.objectsChartRender($('#month-select').val());
+			}
+		
+		});
+
+		$('#month-select').on('change', function() {
+
+			//Handle Line Chart
+			if($('#panel-general').hasClass('active')){
+				DashboardSectionHandler.generalChartRender($(this).val());
+			}else{
+				$("#general-chart").removeClass("ready");
+			}
+
+			//Handle Pie Chart
+			if($('#panel-objects').hasClass('active')){
+				DashboardSectionHandler.objectsChartRender($(this).val());	
+			}else{
+				$("#objects-chart").removeClass("ready");
+			}
+		  	 
 		});
     }
 }
@@ -167,12 +153,8 @@ $( document ).ready(function() {
     
     $(document).foundation();
 
-	ChartsHandler.generalChartRender();
+    ObjectsSectionHandler.initiateObjectsSection();
 
-	$('#general-charts').on('toggled', function (event, tab) {
-	    if($(tab).attr('id') == "panel-objects" && !$("#objects-chart").hasClass("ready")){
-	    	ChartsHandler.objectsChartRender();
-	    }
-	});
+	DashboardSectionHandler.initiateDashboardSection();
 
 });

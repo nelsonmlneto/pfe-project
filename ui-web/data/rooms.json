@@ -1,0 +1,31 @@
+[
+	{
+		"id": "1",
+		"title": "Kitchen"
+	},
+	{
+		"id": "2",
+		"title": "Living Room"
+	},
+	{
+		"id": "3",
+		"title": "TV Room"
+	},
+	{
+		"id": "4",
+		"title": "Couple Bedroom"
+	},
+	{
+		"id": "5",
+		"title": "Kids Bedroom"
+	},
+	{
+		"id": "6",
+		"title": "Garage"
+	},
+	{
+		"id": "7",
+		"title": "Bathroom"
+	}
+
+]

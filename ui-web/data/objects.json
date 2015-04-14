@@ -1,0 +1,198 @@
+[
+    {
+        "title": "Air Conditioner",
+        "serial": "1",
+        "description": " ",
+        "turned": "off",
+        "roomId": "2",
+        "month": [
+            {
+                "title": "january",
+                "consumption": "23"
+            },
+            {
+                "title": "february",
+                "consumption": "26"
+            },
+            {
+                "title": "march",
+                "consumption": "24"
+            }
+        ]
+    },
+    {
+        "title": "Clothers Iron",
+        "serial": "2",
+        "description": " ",
+        "turned": "off",
+        "roomId": "4",
+        "month": [
+            {
+                "title": "january",
+                "consumption": "5"
+            },
+            {
+                "title": "february",
+                "consumption": "8"
+            },
+            {
+                "title": "march",
+                "consumption": "7"
+            }
+        ]
+    },
+    {
+        "title": "Hair Straightener",
+        "serial": "3",
+        "description": " ",
+        "turned": "on",
+        "roomId": "7",
+        "month":{
+            "january": "4",
+            "february": "9",
+            "march": "7"
+        },
+        "month": [
+            {
+                "title": "january",
+                "consumption": "4"
+            },
+            {
+                "title": "february",
+                "consumption": "9"
+            },
+            {
+                "title": "march",
+                "consumption": "7"
+            }
+        ]
+    },
+    {
+        "title": "Couple Bedroom Light",
+        "serial": "4",
+        "description": " ",
+        "turned": "on",
+        "roomId": "4",
+        "month": [
+            {
+                "title": "january",
+                "consumption": "3"
+            },
+            {
+                "title": "february",
+                "consumption": "7"
+            },
+            {
+                "title": "march",
+                "consumption": "5"
+            }
+        ]
+    },
+    {
+        "title": "Oven",
+        "serial": "5",
+        "description": " ",
+        "turned": "off",
+        "roomId": "1",
+        "month": [
+            {
+                "title": "january",
+                "consumption": "11"
+            },
+            {
+                "title": "february",
+                "consumption": "9"
+            },
+            {
+                "title": "march",
+                "consumption": "10"
+            }
+        ]
+    },
+    {
+        "title": "Kitchen Light",
+        "serial": "6",
+        "description": " ",
+        "turned": "on",
+        "roomId": "1",
+        "month": [
+            {
+                "title": "january",
+                "consumption": "7"
+            },
+            {
+                "title": "february",
+                "consumption": "5"
+            },
+            {
+                "title": "march",
+                "consumption": "3"
+            }
+        ]
+    },
+    {
+        "title": "TV",
+        "serial": "7",
+        "description": " ",
+        "turned": "off",
+        "roomId": "3",
+        "month": [
+            {
+                "title": "january",
+                "consumption": "13"
+            },
+            {
+                "title": "february",
+                "consumption": "12"
+            },
+            {
+                "title": "march",
+                "consumption": "14"
+            }
+        ]
+    },
+    {
+        "title": "Garage Light",
+        "serial": "8",
+        "description": " ",
+        "turned": "on",
+        "roomId": "6",
+        "month": [
+            {
+                "title": "january",
+                "consumption": "2"
+            },
+            {
+                "title": "february",
+                "consumption": "3"
+            },
+            {
+                "title": "march",
+                "consumption": "4"
+            }
+        ]
+    },
+    {
+        "title": "Shaving Machine",
+        "serial": "9",
+        "description": " ",
+        "turned": "off",
+        "roomId": "7",
+        "month": [
+            {
+                "title": "january",
+                "consumption": "9"
+            },
+            {
+                "title": "february",
+                "consumption": "10"
+            },
+            {
+                "title": "march",
+                "consumption": "9"
+            }
+        ]
+    }
+
+]
+

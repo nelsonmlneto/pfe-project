@@ -6,7 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 		<link rel="stylesheet" href="libs/foundation-5.5.1/css/foundation.css">
 		<link rel="stylesheet" href="assets/css/style.css">
-		<script src="libs/foundation-5.5.1/js/vendor/modernizr.js"></script>
+		<script type="text/javascript" src="libs/foundation-5.5.1/js/vendor/modernizr.js"></script>
+		<script type="text/javascript" src="libs/mustache.js" ></script>
 	</head>
 
 	<body>
@@ -26,30 +27,18 @@
 
 				<form class="filter-form">
 					<label>Choose your room:
-						<select>
-							<option value="0">All</option>
-							<option value="1">Kitchen</option>
-							<option value="2">Living Room</option>
-							<option value="3">TV Room</option>
-							<option value="4">Couple Bedroom</option>
-							<option value="5">Kids Bedroom</option>
-							<option value="5">Garagem</option>
-							<option value="5">Bathroom</option>
+						<select id="rooms-select">			
+							<script id="rooms-template" type="x-tmpl-mustache">
+								<option value="0">All</option>
+								{{#rooms}}
+									<option value="{{id}}">{{title}}</option>
+								{{/rooms}}
+							</script>
 						</select>
 					</label>
 				</form>
 
-				<ul class="side-nav">
-					<li><a href="#">Air Conditioners<span class="label state off"></span></a></li>
-					<li><a href="#">Clothes Iron<span class="label state off"></span></a></li>
-					<li><a href="#">Hair Straightener<span class="label state on"></span></a></li>
-					<li><a href="#">Light of Couple Bedroom<span class="label state on"></span></a></li>
-					<li><a href="#">Oven<span class="label state off"></span></a></li>
-					<li><a href="#">Light of Kitchen<span class="label state on"></span></a></li>
-					<li><a href="#">TV<span class="label state off"></span></a></li>
-					<li><a href="#">Light of Living Room<span class="label state on"></span></a></li>
-					<li><a href="#">Shaving Machine<span class="label state off"></span></a></li>
-				</ul>
+				<ul id="objects-list" class="side-nav"></ul>
 
 			</div>
 
@@ -57,20 +46,19 @@
 				<h3 class="icon-battery">General Energy Consumption</h3>
 
 				<div class="goal-container">
-					<span class="goal"><strong>Goal: </strong>100 kWh</span>
-					<span class="goal"><strong>Consumed: </strong>84 kWh</span>
+					<span class="goal"><strong>Goal: </strong><span id="goal"></span> kWh</span>
+					<span class="goal"><strong>Consumed: </strong><span id="consumed"></span> kWh</span>
 
 					<div class="progress round">
 						<span class="meter" style="width: 84%"></span>
 					</div>
 
-					<span class="month">Chart Month: </span>
-					<select class="month-select">
-						<option value="0">March</option>
+					<span class="month">Current Month: </span>
+					<select id="month-select" class="month-select">
+						<option value="2">March</option>
 						<option value="1">February</option>
-						<option value="2">January</option>
+						<option value="0">January</option>
 					</select>
-
 				</div>	
 
 				<div class="tab-container">
@@ -86,7 +74,7 @@
 						</div>
 						<div class="content" id="panel-objects">
 							<div class="chart-container">
-								<canvas id="objects-chart" width="350" height="350"></canvas>
+								<canvas id="objects-chart" width="650" height="340"></canvas>
 							</div>
 						</div>
 					</div>
@@ -94,7 +82,6 @@
 
 			</div>	
 		</div>
-
 		
 		<script src="libs/foundation-5.5.1/js/vendor/jquery.js"></script>
 		<script src="libs/foundation-5.5.1/js/vendor/fastclick.js"></script>
