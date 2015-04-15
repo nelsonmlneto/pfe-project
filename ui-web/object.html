@@ -14,7 +14,7 @@
 		<nav class="top-bar" data-topbar role="navigation">
 			<ul class="title-area">
 				<li class="name">
-					<h1><a href="#">SHEMS - Smart Home Energy Management System</a></h1>
+					<h1><a href="/">SHEMS - Smart Home Energy Management System</a></h1>
 				</li>
 			</ul>
 		</nav>	
@@ -43,42 +43,25 @@
 			</div>
 
 			<div class="main-section section">
-				<h3 class="icon-battery">General Energy Consumption</h3>
+				<h3 class="icon-battery">Object Visualization</h3>
 
-				<div class="goal-container">
-					<span class="goal"><strong>Goal: </strong><span id="goal"></span> kWh</span>
-					<span class="goal"><strong>Consumed: </strong><span id="consumed"></span> kWh</span>
+				<div class="object-container">
+					<h4 id="obj-title" class="obj-title"></h4>	
+					<span id="obj-desc" class="obj-desc">
+						
+					</span>	
 
-					<div class="progress round">
-						<span id="progress-bar" class="meter"></span>
+					<!-- Big Switch -->
+					<div id="switch" class="Switch">
+						<div class="Toggle"></div>
+					</div>
+					<!-- // -->
+
+					<div class="chart-container">
+						<canvas id="obj-chart" width="850" height="350"></canvas>
 					</div>
 
-					<span class="month">Current Month: </span>
-					<select id="month-select" class="month-select">
-						<option value="2">March</option>
-						<option value="1">February</option>
-						<option value="0">January</option>
-					</select>
 				</div>	
-
-				<div class="tab-container">
-					<ul id="general-charts" class="tabs" data-tab>
-						<li class="tab-title active"><a href="#panel-general">General Chart</a></li>
-						<li class="tab-title"><a href="#panel-objects">Objects Chart</a></li>
-					</ul>
-					<div class="tabs-content">
-						<div class="content active" id="panel-general">
-							<div class="chart-container">
-								<canvas id="general-chart" width="850" height="340"></canvas>
-							</div>
-						</div>
-						<div class="content" id="panel-objects">
-							<div class="chart-container">
-								<canvas id="objects-chart" width="650" height="340"></canvas>
-							</div>
-						</div>
-					</div>
-				</div>
 
 			</div>	
 		</div>
@@ -88,15 +71,15 @@
 		<script src="/libs/foundation-5.5.1/js/foundation.min.js"></script>
 		<script src="/libs/chart-js/Chart.js"></script>
 
-		<script src="/assets/js/shems.js"></script>
+		<script src="/assets/js/shems.js"></script>		
 
 		<script>
 			$( document ).ready(function() {    
 			    $(document).foundation();
 			    ObjectsSectionHandler.initiateObjectsSection();
-				DashboardSectionHandler.initiateDashboardSection();
+			    ObjectVisualizationHander.initiateObjSection();
 			});
-		</script>		
+		</script>
 
 	</body>
 </html>

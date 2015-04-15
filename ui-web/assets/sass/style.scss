@@ -2,6 +2,8 @@
 @import "default";
 @import "topbar";
 
+@import "switch";
+
 body{
 	min-height: 100%;
 	max-width: 100%;
@@ -159,6 +161,67 @@ body{
 		}
 
 	}
+
+	.object-container{
+		margin-top: 16px;
+
+		.obj-desc{
+			width: 400px;
+			display: inline-block;
+			height: 75px;
+		}
+
+		.Switch{
+			position: absolute;
+			top: 70px;
+			left: 610px;
+			width: 190px;
+			height: 50px;
+			
+
+			.Toggle{
+				background: none;
+				background-color: #ffffff;
+				border: 1px solid #ffffff;
+				box-shadow: none;
+			}
+
+			&.off{ 
+
+				background: none;
+				background-color: #eb5a46;
+				border: 1px solid #eb5a46;
+				box-shadow: none;
+
+				.Toggle{
+					left: 50%;
+				}	
+			}
+
+			&.on{
+
+				background: none;
+				background-color: #70b500;
+				border: 1px solid #70b500;
+				box-shadow: none;
+
+				.Toggle{
+					left: 2%;
+				}	
+			}
+
+			.Toggle{
+				width: 91px;
+				height: 42px;
+				top: 3px;
+			}
+		}
+
+		.chart-container{
+			margin-top: 35px;
+		}
+
+	}
 }
 
 .section{
@@ -194,3 +257,4 @@ body{
 
 	}
 }
+

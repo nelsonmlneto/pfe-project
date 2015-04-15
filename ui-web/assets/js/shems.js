@@ -2,7 +2,7 @@
 var ObjectsSectionHandler = {
 
 	renderRoomsSelect: function(){
-		$.getJSON( "data/rooms.json", function( data ) {
+		$.getJSON( "/data/rooms.json", function( data ) {
 		    var template = $('#rooms-template').html();
 			Mustache.parse(template);  
 			var html = Mustache.to_html(template, {rooms: data});
@@ -25,7 +25,7 @@ var ObjectsSectionHandler = {
 	},
 
 	renderObjectsList: function(room){
-		$.getJSON( "data/objects.json", function( data ) {
+		$.getJSON( "/data/objects.json", function( data ) {
 			var objects = null;
 			if(room == 0){
 			    objects = data;
@@ -33,7 +33,7 @@ var ObjectsSectionHandler = {
 				objects = ObjectsSectionHandler.getObjectsByRoom(room, data);
 			}
 
-			var template = '{{#objects}}<li><a href="#">{{title}}<span class="label state {{turned}}"></span></a></li>{{/objects}}';
+			var template = '{{#objects}}<li><a href="/object.html/?id={{serial}}/">{{title}}<span class="label state {{turned}}"></span></a></li>{{/objects}}';
 			Mustache.parse(template);  
 			var html = Mustache.to_html(template, {objects: objects});
 			$('#objects-list').html(html);
@@ -60,7 +60,7 @@ var DashboardSectionHandler = {
    		if(DashboardSectionHandler.myPieChart != null)
     		DashboardSectionHandler.myPieChart.destroy();
    		
-   		$.getJSON( "data/objects.json", function( data ) {
+   		$.getJSON( "/data/objects.json", function( data ) {
    			var colorPicker = ['#F7464A', '#46BFBD', '#FDB45C', '#F2D600', '#70B500', '#FF9F1A', '#EB5A46', '#C377E0', '#0079BF'];  
    			var chartData = [];
 
@@ -83,10 +83,11 @@ var DashboardSectionHandler = {
     	if(DashboardSectionHandler.myLineChart != null)
     		DashboardSectionHandler.myLineChart.destroy();
 
-    	$.getJSON( "data/consumption.json", function( data ) {
+    	$.getJSON( "/data/consumption.json", function( data ) {
 
     		$('#goal').html(data[monthIndex].goal);
     		$('#consumed').html(data[monthIndex].consumed);
+    		$('#progress-bar').attr('style', 'width:'+data[monthIndex].consumed+'%');
     		
    			var generalChartData = {
 		    	labels: data[monthIndex].labels,
@@ -147,14 +148,77 @@ var DashboardSectionHandler = {
     }
 }
 
+var ObjectVisualizationHander = {
 
-$( document ).ready(function() {
-    console.log( "ready!" );
-    
-    $(document).foundation();
+	myLineChart: null,
 
-    ObjectsSectionHandler.initiateObjectsSection();
+	getObjectById : function(objId, objects){
+		var obj = null;		
+		$.each(objects, function( index, value ) {
+		  	if(value.serial == objId){
+		  		obj = value;	  	
+		  	}
+		});
+		return obj;
+	},
 
-	DashboardSectionHandler.initiateDashboardSection();
+	objLineChartRender : function(objId){
+		if(ObjectVisualizationHander.myLineChart != null)
+    		ObjectVisualizationHander.myLineChart.destroy();
 
-});
+    	$.getJSON( "/data/objects.json", function( data ) {
+
+    		var obj = ObjectVisualizationHander.getObjectById(objId, data);
+    		$('#obj-title').html(obj.title);
+    		$('#obj-desc').html(obj.description);
+    		$('#switch').addClass(obj.turned);
+    		
+    		var labels = [];
+    		var cons = [];
+    		var i = 0;
+    		$.each(obj.month, function( index, value ) {
+			  	labels[i] = value.title;
+			  	cons[i] = value.consumption;
+			  	i++;
+			});
+
+   			var objChartData = {
+		    	labels: labels,
+			    datasets: [
+			        {
+			            label: "Object Dataset",
+			            fillColor: "rgba(151,187,205,0.2)",
+			            strokeColor: "rgba(151,187,205,1)",
+			            pointColor: "rgba(151,187,205,1)",
+			            pointStrokeColor: "#fff",
+			            pointHighlightFill: "#fff",
+			            pointHighlightStroke: "rgba(151,187,205,1)",
+			            data: cons
+			        }
+			    ]
+			};
+			var lineCtx = $("#obj-chart").get(0).getContext("2d");
+			ObjectVisualizationHander.myLineChart = new Chart(lineCtx).Line(objChartData, {
+			    bezierCurve: false
+			});
+   		});	
+    },
+
+	initiateObjSection : function(){
+
+		var SearchString = window.location.search.substring(1);
+		var KeyValuePair = SearchString.split('=');
+		var id = KeyValuePair[1];
+		id = id.substring(0, id.length - 1);
+
+		console.log(id);
+
+		ObjectVisualizationHander.objLineChartRender(id);
+
+		// switch toggle
+		$('#switch').click(function() {
+			$(this).toggleClass('on').toggleClass('off');
+		});
+	}
+
+}

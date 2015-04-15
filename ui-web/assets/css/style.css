@@ -34,7 +34,108 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #fff;
 }
 
-/* line 5, ../sass/style.scss */
+/*------------------------------------------------*/
+/* Switch SECTION START*/
+/*------------------------------------------------*/
+/* line 4, ../sass/_switch.scss */
+.Switch {
+  position: relative;
+  display: inline-block;
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #ccc;
+  text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8);
+  height: 18px;
+  padding: 6px 6px 5px 6px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background: #ececec;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1), inset 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* line 21, ../sass/_switch.scss */
+body.IE7 .Switch {
+  width: 78px;
+}
+
+/* line 23, ../sass/_switch.scss */
+.Switch span {
+  display: inline-block;
+  width: 35px;
+}
+
+/* line 24, ../sass/_switch.scss */
+.Switch span.On {
+  color: #33d2da;
+}
+
+/* line 26, ../sass/_switch.scss */
+.Switch .Toggle {
+  position: absolute;
+  top: 1px;
+  width: 37px;
+  height: 25px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  background: #fff;
+  background: -moz-linear-gradient(top, #ececec 0%, #ffffff 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ececec), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(top, #ececec 0%, #ffffff 100%);
+  background: -o-linear-gradient(top, #ececec 0%, #ffffff 100%);
+  background: -ms-linear-gradient(top, #ececec 0%, #ffffff 100%);
+  background: linear-gradient(top, #ececec 0%, #ffffff 100%);
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.5);
+  z-index: 999;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  -ms-transition: all 0.15s ease-in-out;
+}
+
+/* line 51, ../sass/_switch.scss */
+.Switch.on .Toggle {
+  left: 2%;
+}
+
+/* line 52, ../sass/_switch.scss */
+.Switch.off .Toggle {
+  left: 54%;
+}
+
+/* Round Switch */
+/* line 56, ../sass/_switch.scss */
+.Switch.Round {
+  padding: 0px 20px;
+  border-radius: 40px;
+}
+
+/* line 61, ../sass/_switch.scss */
+body.IE7 .Switch.Round {
+  width: 1px;
+}
+
+/* line 63, ../sass/_switch.scss */
+.Switch.Round .Toggle {
+  border-radius: 40px;
+  width: 14px;
+  height: 14px;
+}
+
+/* line 69, ../sass/_switch.scss */
+.Switch.Round.on .Toggle {
+  left: 3%;
+  background: #33d2da;
+}
+
+/* line 70, ../sass/_switch.scss */
+.Switch.Round.off .Toggle {
+  left: 58%;
+}
+
+/* line 7, ../sass/style.scss */
 body {
   min-height: 100%;
   max-width: 100%;
@@ -42,7 +143,7 @@ body {
   background-color: #E5E5E5;
 }
 
-/* line 12, ../sass/style.scss */
+/* line 14, ../sass/style.scss */
 .page-wrapper {
   height: 600px;
   min-width: 1226px;
@@ -50,14 +151,14 @@ body {
   position: relative;
 }
 
-/* line 19, ../sass/style.scss */
+/* line 21, ../sass/style.scss */
 .objetcs-section {
   width: 265px;
   position: absolute;
   top: 0;
   left: 0;
 }
-/* line 25, ../sass/style.scss */
+/* line 27, ../sass/style.scss */
 .objetcs-section .add {
   background-color: #d6dadc;
   color: #4d4d4d;
@@ -68,20 +169,20 @@ body {
   top: 15px;
   line-height: 15px;
 }
-/* line 35, ../sass/style.scss */
+/* line 37, ../sass/style.scss */
 .objetcs-section .add:hover {
   background-color: #c4c9cc;
   color: #4d4d4d;
 }
-/* line 41, ../sass/style.scss */
+/* line 43, ../sass/style.scss */
 .objetcs-section .filter-form {
   margin-top: 20px;
 }
-/* line 44, ../sass/style.scss */
+/* line 46, ../sass/style.scss */
 .objetcs-section .filter-form label {
   font-size: 16px;
 }
-/* line 49, ../sass/style.scss */
+/* line 51, ../sass/style.scss */
 .objetcs-section .side-nav {
   position: absolute;
   top: 135px;
@@ -90,16 +191,16 @@ body {
   bottom: 0;
   overflow-y: auto;
 }
-/* line 57, ../sass/style.scss */
+/* line 59, ../sass/style.scss */
 .objetcs-section .side-nav li a:not(.button) {
   color: #4d4d4d;
 }
-/* line 60, ../sass/style.scss */
+/* line 62, ../sass/style.scss */
 .objetcs-section .side-nav li a:not(.button):hover {
   background: #d6dadc;
   color: #4d4d4d;
 }
-/* line 65, ../sass/style.scss */
+/* line 67, ../sass/style.scss */
 .objetcs-section .side-nav li a:not(.button) .state {
   right: 15px;
   position: absolute;
@@ -107,16 +208,16 @@ body {
   height: 16px;
   margin-top: 3px;
 }
-/* line 72, ../sass/style.scss */
+/* line 74, ../sass/style.scss */
 .objetcs-section .side-nav li a:not(.button) .state.on {
   background-color: #70b500;
 }
-/* line 76, ../sass/style.scss */
+/* line 78, ../sass/style.scss */
 .objetcs-section .side-nav li a:not(.button) .state.off {
   background-color: #eb5a46;
 }
 
-/* line 85, ../sass/style.scss */
+/* line 87, ../sass/style.scss */
 .main-section {
   min-width: 950px;
   position: absolute;
@@ -125,21 +226,21 @@ body {
   left: 0;
   margin-left: 285px;
 }
-/* line 93, ../sass/style.scss */
+/* line 95, ../sass/style.scss */
 .main-section .goal-container {
   margin-top: 20px;
 }
-/* line 96, ../sass/style.scss */
+/* line 98, ../sass/style.scss */
 .main-section .goal-container .goal {
   margin-bottom: 10px;
   font-size: 18px;
   line-height: 22px;
 }
-/* line 101, ../sass/style.scss */
+/* line 103, ../sass/style.scss */
 .main-section .goal-container .goal + .goal {
   margin-left: 50px;
 }
-/* line 107, ../sass/style.scss */
+/* line 109, ../sass/style.scss */
 .main-section .goal-container .progress {
   margin-top: 10px;
   margin-bottom: 20px;
@@ -147,20 +248,20 @@ body {
   background-color: #d6dadc;
   height: 15px;
 }
-/* line 114, ../sass/style.scss */
+/* line 116, ../sass/style.scss */
 .main-section .goal-container .progress .meter {
   background: #026aa7;
 }
-/* line 119, ../sass/style.scss */
+/* line 121, ../sass/style.scss */
 .main-section .goal-container .month {
   font-size: 16px;
 }
-/* line 123, ../sass/style.scss */
+/* line 125, ../sass/style.scss */
 .main-section .goal-container .month-select {
   width: 150px;
   margin-left: 10px;
 }
-/* line 130, ../sass/style.scss */
+/* line 132, ../sass/style.scss */
 .main-section .tab-container {
   position: absolute;
   bottom: 20px;
@@ -168,31 +269,88 @@ body {
   left: 20px;
   top: 180px;
 }
-/* line 138, ../sass/style.scss */
+/* line 140, ../sass/style.scss */
 .main-section .tab-container .tabs .tab-title.active a {
   border-bottom: 2px solid #026aa7;
 }
-/* line 141, ../sass/style.scss */
+/* line 143, ../sass/style.scss */
 .main-section .tab-container .tabs .tab-title.active a:hover {
   border-bottom: 2px solid #026aa7;
 }
-/* line 146, ../sass/style.scss */
+/* line 148, ../sass/style.scss */
 .main-section .tab-container .tabs .tab-title > a {
   background-color: white;
   border-bottom: 2px solid white;
   padding: 8px 16px;
   margin-right: 5px;
 }
-/* line 152, ../sass/style.scss */
+/* line 154, ../sass/style.scss */
 .main-section .tab-container .tabs .tab-title > a:hover {
   border-bottom: 2px solid #026aa7;
 }
-/* line 157, ../sass/style.scss */
+/* line 159, ../sass/style.scss */
 .main-section .tab-container .chart-container {
   margin-left: 20px;
 }
+/* line 165, ../sass/style.scss */
+.main-section .object-container {
+  margin-top: 16px;
+}
+/* line 168, ../sass/style.scss */
+.main-section .object-container .obj-desc {
+  width: 400px;
+  display: inline-block;
+  height: 75px;
+}
+/* line 174, ../sass/style.scss */
+.main-section .object-container .Switch {
+  position: absolute;
+  top: 70px;
+  left: 610px;
+  width: 190px;
+  height: 50px;
+}
+/* line 182, ../sass/style.scss */
+.main-section .object-container .Switch .Toggle {
+  background: none;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  box-shadow: none;
+}
+/* line 189, ../sass/style.scss */
+.main-section .object-container .Switch.off {
+  background: none;
+  background-color: #eb5a46;
+  border: 1px solid #eb5a46;
+  box-shadow: none;
+}
+/* line 196, ../sass/style.scss */
+.main-section .object-container .Switch.off .Toggle {
+  left: 50%;
+}
+/* line 201, ../sass/style.scss */
+.main-section .object-container .Switch.on {
+  background: none;
+  background-color: #70b500;
+  border: 1px solid #70b500;
+  box-shadow: none;
+}
+/* line 208, ../sass/style.scss */
+.main-section .object-container .Switch.on .Toggle {
+  left: 2%;
+}
+/* line 213, ../sass/style.scss */
+.main-section .object-container .Switch .Toggle {
+  width: 91px;
+  height: 42px;
+  top: 3px;
+}
+/* line 220, ../sass/style.scss */
+.main-section .object-container .chart-container {
+  margin-top: 35px;
+}
 
-/* line 164, ../sass/style.scss */
+/* line 227, ../sass/style.scss */
 .section {
   height: 100%;
   background-color: #fff;
@@ -202,11 +360,11 @@ body {
   margin-bottom: 20px;
   padding: 10px 20px 0 20px;
 }
-/* line 173, ../sass/style.scss */
+/* line 236, ../sass/style.scss */
 .section h3 {
   font-size: 22px;
 }
-/* line 176, ../sass/style.scss */
+/* line 239, ../sass/style.scss */
 .section h3:before {
   content: '';
   display: inline-block;
@@ -217,11 +375,11 @@ body {
   background-size: 30px 30px;
   background-repeat: no-repeat;
 }
-/* line 187, ../sass/style.scss */
+/* line 250, ../sass/style.scss */
 .section h3.icon-plug:before {
   background-image: url("../img/plug-gray.png");
 }
-/* line 191, ../sass/style.scss */
+/* line 254, ../sass/style.scss */
 .section h3.icon-battery:before {
   background-image: url("../img/battery-gray.png");
 }
