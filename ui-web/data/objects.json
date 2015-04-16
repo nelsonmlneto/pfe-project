@@ -1,193 +1,200 @@
 [
-    {
-        "title": "Air Conditioner",
-        "serial": "1",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "turned": "off",
-        "roomId": "2",
-        "month": [
-            {
-                "title": "January",
-                "consumption": "23"
-            },
-            {
-                "title": "February",
-                "consumption": "26"
-            },
-            {
-                "title": "March",
-                "consumption": "24"
-            }
-        ]
-    },
-    {
-        "title": "Clothers Iron",
-        "serial": "2",
-        "description": "Quisque sed ornare augue, non imperdiet quam. Donec sollicitudin mauris fringilla aliquet congue. Curabitur ante ipsum, pretium in luctus id, tempor in quam",
-        "turned": "off",
-        "roomId": "4",
-        "month": [
-            {
-                "title": "January",
-                "consumption": "5"
-            },
-            {
-                "title": "February",
-                "consumption": "8"
-            },
-            {
-                "title": "March",
-                "consumption": "7"
-            }
-        ]
-    },
-    {
-        "title": "Hair Straightener",
-        "serial": "3",
-        "description": "Curabitur fringilla dolor eget velit viverra, nec scelerisque nunc iaculis. Quisque sed ultrices lacus, vel maximus lacus. Nulla pulvinar suscipit faucibus.",
-        "turned": "on",
-        "roomId": "7",
-        "month": [
-            {
-                "title": "January",
-                "consumption": "4"
-            },
-            {
-                "title": "February",
-                "consumption": "9"
-            },
-            {
-                "title": "March",
-                "consumption": "7"
-            }
-        ]
-    },
-    {
-        "title": "Couple Bedroom Light",
-        "serial": "4",
-        "description": "Suspendisse quis erat leo. Vestibulum eu rutrum nisl. Cras nec nulla ipsum. Pellentesque nulla metus, sagittis nec diam eget, tristique facilisis nunc.",
-        "turned": "on",
-        "roomId": "4",
-        "month": [
-            {
-                "title": "January",
-                "consumption": "3"
-            },
-            {
-                "title": "February",
-                "consumption": "7"
-            },
-            {
-                "title": "March",
-                "consumption": "5"
-            }
-        ]
-    },
-    {
-        "title": "Oven",
-        "serial": "5",
-        "description": "Duis diam tortor, pellentesque ut pretium ac, hendrerit vehicula felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas",
-        "turned": "off",
-        "roomId": "1",
-        "month": [
-            {
-                "title": "January",
-                "consumption": "11"
-            },
-            {
-                "title": "February",
-                "consumption": "9"
-            },
-            {
-                "title": "March",
-                "consumption": "10"
-            }
-        ]
-    },
-    {
-        "title": "Kitchen Light",
-        "serial": "6",
-        "description": "Fusce sed scelerisque metus, a sodales enim. Ut in risus sit amet justo efficitur ultricies. Nulla sit amet elit sed odio pretium imperdiet. Aenean nulla elit.",
-        "turned": "on",
-        "roomId": "1",
-        "month": [
-            {
-                "title": "January",
-                "consumption": "7"
-            },
-            {
-                "title": "February",
-                "consumption": "5"
-            },
-            {
-                "title": "March",
-                "consumption": "3"
-            }
-        ]
-    },
-    {
-        "title": "TV",
-        "serial": "7",
-        "description": "Praesent finibus laoreet tellus non eleifend. Sed dictum quis quam vitae venenatis. Mauris rutrum lectus ut sapien congue molestie. Nunc ultricies efficitur nibh placerat rhoncus.",
-        "turned": "off",
-        "roomId": "3",
-        "month": [
-            {
-                "title": "January",
-                "consumption": "13"
-            },
-            {
-                "title": "February",
-                "consumption": "12"
-            },
-            {
-                "title": "March",
-                "consumption": "14"
-            }
-        ]
-    },
-    {
-        "title": "Garage Light",
-        "serial": "8",
-        "description": "Donec nec elit at est pretium scelerisque eget a dui. Integer a tempus justo, ac condimentum mauris. Duis tincidunt blandit ex sed fringilla. Ut placerat dolor quis est elementum volutpat.",
-        "turned": "on",
-        "roomId": "6",
-        "month": [
-            {
-                "title": "January",
-                "consumption": "2"
-            },
-            {
-                "title": "February",
-                "consumption": "3"
-            },
-            {
-                "title": "March",
-                "consumption": "4"
-            }
-        ]
-    },
-    {
-        "title": "Shaving Machine",
-        "serial": "9",
-        "description": "Vivamus ut luctus sapien. Quisque finibus justo non mauris condimentum mattis sit amet vitae purus. Integer blandit fermentum orci. Nullam lectus nibh.",
-        "turned": "off",
-        "roomId": "7",
-        "month": [
-            {
-                "title": "January",
-                "consumption": "9"
-            },
-            {
-                "title": "February",
-                "consumption": "10"
-            },
-            {
-                "title": "March",
-                "consumption": "9"
-            }
-        ]
-    }
-
+  {
+    "title": "Air Conditioner",
+    "serial": "1",
+    "id": "1",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "turned": "off",
+    "roomId": "2",
+    "month": [
+      {
+        "title": "January",
+        "consumption": "23"
+      },
+      {
+        "title": "February",
+        "consumption": "26"
+      },
+      {
+        "title": "March",
+        "consumption": "24"
+      }
+    ]
+  },
+  {
+    "title": "Clothers Iron",
+    "serial": "2",
+    "id": "2",
+    "description": "Quisque sed ornare augue, non imperdiet quam. Donec sollicitudin mauris fringilla aliquet congue. Curabitur ante ipsum, pretium in luctus id, tempor in quam",
+    "turned": "off",
+    "roomId": "4",
+    "month": [
+      {
+        "title": "January",
+        "consumption": "5"
+      },
+      {
+        "title": "February",
+        "consumption": "8"
+      },
+      {
+        "title": "March",
+        "consumption": "7"
+      }
+    ]
+  },
+  {
+    "title": "Hair Straightener",
+    "serial": "3",
+    "id": "3",
+    "description": "Curabitur fringilla dolor eget velit viverra, nec scelerisque nunc iaculis. Quisque sed ultrices lacus, vel maximus lacus. Nulla pulvinar suscipit faucibus.",
+    "turned": "on",
+    "roomId": "7",
+    "month": [
+      {
+        "title": "January",
+        "consumption": "4"
+      },
+      {
+        "title": "February",
+        "consumption": "9"
+      },
+      {
+        "title": "March",
+        "consumption": "7"
+      }
+    ]
+  },
+  {
+    "title": "Couple Bedroom Light",
+    "serial": "4",
+    "id": "4",
+    "description": "Suspendisse quis erat leo. Vestibulum eu rutrum nisl. Cras nec nulla ipsum. Pellentesque nulla metus, sagittis nec diam eget, tristique facilisis nunc.",
+    "turned": "on",
+    "roomId": "4",
+    "month": [
+      {
+        "title": "January",
+        "consumption": "3"
+      },
+      {
+        "title": "February",
+        "consumption": "7"
+      },
+      {
+        "title": "March",
+        "consumption": "5"
+      }
+    ]
+  },
+  {
+    "title": "Oven",
+    "serial": "5",
+    "id": "5",
+    "description": "Duis diam tortor, pellentesque ut pretium ac, hendrerit vehicula felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas",
+    "turned": "off",
+    "roomId": "1",
+    "month": [
+      {
+        "title": "January",
+        "consumption": "11"
+      },
+      {
+        "title": "February",
+        "consumption": "9"
+      },
+      {
+        "title": "March",
+        "consumption": "10"
+      }
+    ]
+  },
+  {
+    "title": "Kitchen Light",
+    "serial": "6",
+    "id": "6",
+    "description": "Fusce sed scelerisque metus, a sodales enim. Ut in risus sit amet justo efficitur ultricies. Nulla sit amet elit sed odio pretium imperdiet. Aenean nulla elit.",
+    "turned": "on",
+    "roomId": "1",
+    "month": [
+      {
+        "title": "January",
+        "consumption": "7"
+      },
+      {
+        "title": "February",
+        "consumption": "5"
+      },
+      {
+        "title": "March",
+        "consumption": "3"
+      }
+    ]
+  },
+  {
+    "title": "TV",
+    "serial": "7",
+    "id": "7",
+    "description": "Praesent finibus laoreet tellus non eleifend. Sed dictum quis quam vitae venenatis. Mauris rutrum lectus ut sapien congue molestie. Nunc ultricies efficitur nibh placerat rhoncus.",
+    "turned": "off",
+    "roomId": "3",
+    "month": [
+      {
+        "title": "January",
+        "consumption": "13"
+      },
+      {
+        "title": "February",
+        "consumption": "12"
+      },
+      {
+        "title": "March",
+        "consumption": "14"
+      }
+    ]
+  },
+  {
+    "title": "Garage Light",
+    "serial": "8",
+    "id": "8",
+    "description": "Donec nec elit at est pretium scelerisque eget a dui. Integer a tempus justo, ac condimentum mauris. Duis tincidunt blandit ex sed fringilla. Ut placerat dolor quis est elementum volutpat.",
+    "turned": "on",
+    "roomId": "6",
+    "month": [
+      {
+        "title": "January",
+        "consumption": "2"
+      },
+      {
+        "title": "February",
+        "consumption": "3"
+      },
+      {
+        "title": "March",
+        "consumption": "4"
+      }
+    ]
+  },
+  {
+    "title": "Shaving Machine",
+    "serial": "9",
+    "id": "9",
+    "description": "Vivamus ut luctus sapien. Quisque finibus justo non mauris condimentum mattis sit amet vitae purus. Integer blandit fermentum orci. Nullam lectus nibh.",
+    "turned": "off",
+    "roomId": "7",
+    "month": [
+      {
+        "title": "January",
+        "consumption": "9"
+      },
+      {
+        "title": "February",
+        "consumption": "10"
+      },
+      {
+        "title": "March",
+        "consumption": "9"
+      }
+    ]
+  }
 ]
-

@@ -217,6 +217,10 @@ body{
 			}
 		}
 
+		#switch-form{
+			display: none;
+		}
+
 		.chart-container{
 			margin-top: 35px;
 		}
@@ -258,3 +262,19 @@ body{
 	}
 }
 
+.add-form{
+
+	.submit, .close-reveal-modal{
+		display: none;
+	}
+
+	.button{
+		background-color: #026aa7;
+		color: #ffffff;
+		
+		&:hover{
+			background-color: #0a5783;
+			color: #ffffff;
+		}
+	}
+}

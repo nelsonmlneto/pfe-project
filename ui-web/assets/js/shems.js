@@ -7,6 +7,11 @@ var ObjectsSectionHandler = {
 			Mustache.parse(template);  
 			var html = Mustache.to_html(template, {rooms: data});
 			$('#rooms-select').html(html);
+
+			template = $('#rooms-modal-template').html();
+			Mustache.parse(template);  
+			html = Mustache.to_html(template, {rooms: data});
+			$('#rooms-modal-select').html(html);
 		});
 	},
 
@@ -33,7 +38,7 @@ var ObjectsSectionHandler = {
 				objects = ObjectsSectionHandler.getObjectsByRoom(room, data);
 			}
 
-			var template = '{{#objects}}<li><a href="/object.html/?id={{serial}}/">{{title}}<span class="label state {{turned}}"></span></a></li>{{/objects}}';
+			var template = '{{#objects}}<li><a href="/object/?id={{id}}">{{title}}<span class="label state {{turned}}"></span></a></li>{{/objects}}';
 			Mustache.parse(template);  
 			var html = Mustache.to_html(template, {objects: objects});
 			$('#objects-list').html(html);
@@ -46,7 +51,13 @@ var ObjectsSectionHandler = {
 
     	$('#rooms-select').on('change', function() {
 		  	ObjectsSectionHandler.renderObjectsList($(this).val()); 
-		});  	
+		});  
+
+		$('#submit-add').on('click', function(){
+			$.post('/add', $('#add-form').serialize());
+			ObjectsSectionHandler.renderObjectsList($('#rooms-select').val()); 
+			$('#close-modal').trigger('click');
+		})	
 	}
 }
 
@@ -155,7 +166,7 @@ var ObjectVisualizationHander = {
 	getObjectById : function(objId, objects){
 		var obj = null;		
 		$.each(objects, function( index, value ) {
-		  	if(value.serial == objId){
+		  	if(value.id == objId){
 		  		obj = value;	  	
 		  	}
 		});
@@ -172,6 +183,7 @@ var ObjectVisualizationHander = {
     		$('#obj-title').html(obj.title);
     		$('#obj-desc').html(obj.description);
     		$('#switch').addClass(obj.turned);
+    		$('#switch-obj-id').val(objId);
     		
     		var labels = [];
     		var cons = [];
@@ -209,15 +221,28 @@ var ObjectVisualizationHander = {
 		var SearchString = window.location.search.substring(1);
 		var KeyValuePair = SearchString.split('=');
 		var id = KeyValuePair[1];
-		id = id.substring(0, id.length - 1);
-
-		console.log(id);
 
 		ObjectVisualizationHander.objLineChartRender(id);
 
 		// switch toggle
 		$('#switch').click(function() {
-			$(this).toggleClass('on').toggleClass('off');
+		
+			var switchValue = null;
+
+			if($(this).hasClass('off')){
+				$(this).removeClass('off');
+				$(this).addClass('on');
+				switchValue = 'on';
+			}else{
+				$(this).removeClass('on');
+				$(this).addClass('off');
+				switchValue = 'off';
+			}
+
+			$('#switch-value').val(switchValue);
+			$.post('/switch', $('#switch-form').serialize());
+			ObjectsSectionHandler.renderObjectsList($('#rooms-select').val()); 
+
 		});
 	}
 

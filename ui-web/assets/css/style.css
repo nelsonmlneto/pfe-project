@@ -346,11 +346,15 @@ body {
   top: 3px;
 }
 /* line 220, ../sass/style.scss */
+.main-section .object-container #switch-form {
+  display: none;
+}
+/* line 224, ../sass/style.scss */
 .main-section .object-container .chart-container {
   margin-top: 35px;
 }
 
-/* line 227, ../sass/style.scss */
+/* line 231, ../sass/style.scss */
 .section {
   height: 100%;
   background-color: #fff;
@@ -360,11 +364,11 @@ body {
   margin-bottom: 20px;
   padding: 10px 20px 0 20px;
 }
-/* line 236, ../sass/style.scss */
+/* line 240, ../sass/style.scss */
 .section h3 {
   font-size: 22px;
 }
-/* line 239, ../sass/style.scss */
+/* line 243, ../sass/style.scss */
 .section h3:before {
   content: '';
   display: inline-block;
@@ -375,11 +379,26 @@ body {
   background-size: 30px 30px;
   background-repeat: no-repeat;
 }
-/* line 250, ../sass/style.scss */
+/* line 254, ../sass/style.scss */
 .section h3.icon-plug:before {
   background-image: url("../img/plug-gray.png");
 }
-/* line 254, ../sass/style.scss */
+/* line 258, ../sass/style.scss */
 .section h3.icon-battery:before {
   background-image: url("../img/battery-gray.png");
+}
+
+/* line 267, ../sass/style.scss */
+.add-form .submit, .add-form .close-reveal-modal {
+  display: none;
+}
+/* line 271, ../sass/style.scss */
+.add-form .button {
+  background-color: #026aa7;
+  color: #ffffff;
+}
+/* line 275, ../sass/style.scss */
+.add-form .button:hover {
+  background-color: #0a5783;
+  color: #ffffff;
 }

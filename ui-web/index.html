@@ -23,7 +23,7 @@
 
 			<div class="objetcs-section section">
 				<h3 class="icon-plug">Objects</h3>
-				<a class="button secondary add" href="#">+</a>
+				<a class="button secondary add" data-reveal-id="add-modal" href="#">+</a>
 
 				<form class="filter-form">
 					<label>Choose your room:
@@ -83,6 +83,55 @@
 			</div>	
 		</div>
 		
+		<div id="add-modal" class="reveal-modal small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+			<a id="close-modal" class="close-reveal-modal" aria-label="Close">&#215;</a>
+
+			<h4 id="modalTitle">Register a new object</h2>
+			
+			<form id="add-form" class="add-form" method="post" action="/add">
+				<div class="row">
+					<div class="large-12 columns">
+						<label>Serial:
+							<input type="text" name="serial"/>
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="large-12 columns">
+						<label>Object Name:
+							<input type="text" name="title"/>
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="large-12 columns">
+						<label>Room:
+							<select id="rooms-modal-select" name="roomId">			
+								<script id="rooms-modal-template" type="x-tmpl-mustache">
+									{{#rooms}}
+										<option value="{{id}}">{{title}}</option>
+									{{/rooms}}
+								</script>
+							</select>
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="large-12 columns">
+						<label>Description:
+							<textarea rows="4" name="description"></textarea>
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="large-12 columns">
+						<a id="submit-add" href="#" class="button">Register</a>
+						<input class="submit" type="submit"></input>
+					</div>
+				</div>
+			</form>
+		</div>
+
 		<script src="/libs/foundation-5.5.1/js/vendor/jquery.js"></script>
 		<script src="/libs/foundation-5.5.1/js/vendor/fastclick.js"></script>
 		<script src="/libs/foundation-5.5.1/js/foundation.min.js"></script>
