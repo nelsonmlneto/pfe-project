@@ -1,1 +1,5 @@
-./ui-web/sass-cache/
+/ui-web/.sass-cache/
+/test-web/target/
+/test-web/.classpath
+/test-web/.project
+/test-web/.settings/
