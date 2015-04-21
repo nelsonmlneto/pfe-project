@@ -1,6 +1,8 @@
 package com.shems.web;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.awt.Color;
 import java.util.StringTokenizer;
@@ -14,14 +16,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 
 public class ObjectFilterTestSuite {
   private static WebDriver driver;
   private static String baseUrl;
-  private static StringBuffer verificationErrors = new StringBuffer();
   
-  private final String OFF_COLOR = "#eb5a4";
+  private final String OFF_COLOR = "#eb5a46";
+  private final String ON_COLOR = "#70b500";
 
   @BeforeClass
   public static void setUpAll() throws Exception {
@@ -39,74 +40,72 @@ public class ObjectFilterTestSuite {
   public void testObjectFilterAll() throws Exception {
     driver.get(baseUrl + "/");
 
-    try {
-    	assertTrue(isElementPresent(By.linkText("Air Conditioner")));
-    	String objSwitchColor = getColorHex(driver.findElement(By.xpath("//ul[@id='objects-list']/li/a/span")).getCssValue("background-color"));
-    	assertEquals(this.OFF_COLOR, objSwitchColor);
-    	
-    	assertTrue(isElementPresent(By.linkText("Clothers Iron")));
-    	
-    	assertTrue(isElementPresent(By.linkText("Hair Straightener")));
-    	
-    	assertTrue(isElementPresent(By.linkText("Couple Bedroom Light")));
-    	
-    	assertTrue(isElementPresent(By.linkText("Oven")));
-    	
-    	assertTrue(isElementPresent(By.linkText("Kitchen Light")));
-    	
-    	assertTrue(isElementPresent(By.linkText("TV")));
-    	
-    	assertTrue(isElementPresent(By.linkText("Garage Light")));
-    	
-    	assertTrue(isElementPresent(By.linkText("Shaving Machine")));
-    	
-    } catch (Error e) {
-      verificationErrors.append(e.toString());
-    }
+	assertTrue(isElementPresent(By.linkText("Air Conditioner")));
+	assertEquals(this.OFF_COLOR, getObjectStateHexColor("//ul[@id='objects-list']/li/a/span"));
+	
+	assertTrue(isElementPresent(By.linkText("Clothers Iron")));
+	assertEquals(this.ON_COLOR, getObjectStateHexColor("//ul[@id='objects-list']/li[2]/a/span"));
+	
+	assertTrue(isElementPresent(By.linkText("Hair Straightener")));
+	assertEquals(this.ON_COLOR, getObjectStateHexColor("//ul[@id='objects-list']/li[3]/a/span"));
+	
+	assertTrue(isElementPresent(By.linkText("Couple Bedroom Light")));
+	assertEquals(this.OFF_COLOR, getObjectStateHexColor("//ul[@id='objects-list']/li[4]/a/span"));
+	
+	assertTrue(isElementPresent(By.linkText("Oven")));
+	assertEquals(this.OFF_COLOR, getObjectStateHexColor("//ul[@id='objects-list']/li[5]/a/span"));
+	
+	assertTrue(isElementPresent(By.linkText("Kitchen Light")));
+	assertEquals(this.ON_COLOR, getObjectStateHexColor("//ul[@id='objects-list']/li[6]/a/span"));
+	
+	assertTrue(isElementPresent(By.linkText("TV")));
+	assertEquals(this.OFF_COLOR, getObjectStateHexColor("//ul[@id='objects-list']/li[7]/a/span"));
+	
+	assertTrue(isElementPresent(By.linkText("Garage Light")));
+	assertEquals(this.ON_COLOR, getObjectStateHexColor("//ul[@id='objects-list']/li[8]/a/span"));
+	
+	assertTrue(isElementPresent(By.linkText("Shaving Machine")));
+	assertEquals(this.OFF_COLOR, getObjectStateHexColor("//ul[@id='objects-list']/li[9]/a/span"));
+
   }
   
   @Test
   public void testObjectFilterKitchen() throws Exception {
     driver.get(baseUrl + "/");
-    Select objFilter = new Select(driver.findElement(By.id("rooms-select")));
-    objFilter.selectByVisibleText("Kitchen");
     driver.findElement(By.cssSelector("option[value=\"1\"]")).click();
       
-    try {
-    	assertTrue(isElementPresent(By.linkText("Oven")));
-    	assertTrue(isElementPresent(By.linkText("Kitchen Light")));
+	assertTrue(isElementPresent(By.linkText("Oven")));
+	assertTrue(isElementPresent(By.linkText("Kitchen Light")));
     
-    } catch (Error e) {
-      verificationErrors.append(e.toString());
-    }
   }
   
   @Test
   public void testObjectFilterBathroom() throws Exception {
     driver.get(baseUrl + "/");
-    Select objFilter = new Select(driver.findElement(By.id("rooms-select")));
-    objFilter.selectByVisibleText("Bathroom");
     driver.findElement(By.cssSelector("option[value=\"7\"]")).click();
-    
-    try {
-    	assertTrue(isElementPresent(By.linkText("Hair Straightener")));	
-    	assertTrue(isElementPresent(By.linkText("Shaving Machine")));
-    	
-    } catch (Error e) {
-    	verificationErrors.append(e.toString());
-    }
+
+	assertTrue(isElementPresent(By.linkText("Hair Straightener")));	
+	assertTrue(isElementPresent(By.linkText("Shaving Machine")));
+
+  }
+  
+  @Test
+  public void testObjectFilterKidsBedroom() throws Exception{
+	driver.get(baseUrl + "/");
+	driver.findElement(By.cssSelector("option[value=\"5\"]")).click();
+	
+	assertFalse(isElementPresent(By.xpath("//ul[@id='objects-list']/li")));		
+	  
   }
 
   @AfterClass
   public static void tearDown() throws Exception {
-    driver.quit();
-    String verificationErrorString = verificationErrors.toString();
-    if (!"".equals(verificationErrorString)) {
-      fail(verificationErrorString);
-    }
+	  driver.quit();
   }
   
-  private String getColorHex(String color){
+  private String getObjectStateHexColor(String selector){
+	  String color = driver.findElement(By.xpath(selector)).getCssValue("background-color");
+	  
 	  String s1 = color.substring(5);
 	  StringTokenizer st = new StringTokenizer(s1);
 	  int r = Integer.parseInt(st.nextToken(",").trim());
@@ -116,14 +115,17 @@ public class ObjectFilterTestSuite {
 	  String hex = "#"+Integer.toHexString(c.getRGB()).substring(2);
 	  
 	  return hex;
+	  
   }
-  
   private boolean isElementPresent(By by) {
     try {
-      driver.findElement(by);
-      return true;
+    	driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+    	driver.findElement(by);
+    	driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
+    	return true;
+    
     } catch (NoSuchElementException e) {
-      return false;
+    	return false;
     }
   }
 }
