@@ -76,6 +76,14 @@ public class ObjectFilterTestSuite {
       
 	assertTrue(isElementPresent(By.linkText("Oven")));
 	assertTrue(isElementPresent(By.linkText("Kitchen Light")));
+	
+	assertFalse(isElementPresent(By.linkText("Air Conditioner")));
+	assertFalse(isElementPresent(By.linkText("Clothers Iron")));  
+	assertFalse(isElementPresent(By.linkText("Hair Straightener")));  
+	assertFalse(isElementPresent(By.linkText("Couple Bedroom Light"))); 
+	assertFalse(isElementPresent(By.linkText("TV")));
+	assertFalse(isElementPresent(By.linkText("Garage Light")));  
+	assertFalse(isElementPresent(By.linkText("Shaving Machine")));
     
   }
   
@@ -86,6 +94,14 @@ public class ObjectFilterTestSuite {
 
 	assertTrue(isElementPresent(By.linkText("Hair Straightener")));	
 	assertTrue(isElementPresent(By.linkText("Shaving Machine")));
+	
+	assertFalse(isElementPresent(By.linkText("Air Conditioner")));
+	assertFalse(isElementPresent(By.linkText("Clothers Iron")));  
+	assertFalse(isElementPresent(By.linkText("Couple Bedroom Light")));
+	assertFalse(isElementPresent(By.linkText("Oven")));
+	assertFalse(isElementPresent(By.linkText("Kitchen Light")));  
+	assertFalse(isElementPresent(By.linkText("TV")));
+	assertFalse(isElementPresent(By.linkText("Garage Light")));  
 
   }
   
@@ -117,6 +133,7 @@ public class ObjectFilterTestSuite {
 	  return hex;
 	  
   }
+  
   private boolean isElementPresent(By by) {
     try {
     	driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
